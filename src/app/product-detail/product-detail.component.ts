@@ -13,7 +13,7 @@ export class ProductDetailComponent {
 
   getImageUrl(product: IProduct) {
     if (!product) return '';
-    return '/assets/images/robot-parts/' + product.imageUrl;
+    return '/assets/images/robot-parts/' + product.imageName;
   }
 
   buyButtonClicked(product: IProduct) {
