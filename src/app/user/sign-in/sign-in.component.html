@@ -1,0 +1,40 @@
+<div class="container">
+  <form class="form" #signInForm="ngForm" (ngSubmit)="signIn()">
+    <img class="logo" src="/assets/images/logo.png" />
+    <div class="sign-in">Sign In</div>
+    <div class="sub-text">to acquire awesome bots</div>
+    <input
+      required
+      email
+      name="email"
+      placeholder="Email Address"
+      type="text"
+      #email="ngModel"
+      [(ngModel)]="credentials.email"/>
+      <em class="error" *ngIf="email.errors?.['required'] && email.touched"
+      >email is required</em>
+      <em class="error" *ngIf="email.errors?.['email'] && email.touched"
+        >must have email format</em>
+    <input
+      required
+      name="password"
+      placeholder="Password"
+      type="password"
+      #password="ngModel"
+      [(ngModel)]="credentials.password"
+    />
+    <em class="error" *ngIf="password.invalid && password.touched"
+      >password is required</em
+    >
+    <div class="buttons">
+      <button
+        type="submit"
+        class="button cta"
+        [disabled]="signInForm.form.invalid"
+      >
+        Sign In
+      </button>
+    </div>
+    <div class="signInError" *ngIf="signInError">Sign In Failed</div>
+  </form>
+</div>
